@@ -1,0 +1,94 @@
+<div class="app-container">
+  <div id="header">
+    <h1>Pokedex</h1>
+    <span>{{itemsLeft}}/{{totalItems}}</span>
+  </div>
+  <div class="filter-container">
+    <input type="text" ng-model="searchCharacterDetails" ng-change="searchCharacter()" placeholder="Enter a name and type" class="search-text">
+    <div class="filter-sortby-wrapper">
+        <label>Sort by:
+          <select ng-model="pokedexSort">
+            <option value="id" selected="selected">#</option>
+            <option value="ename">Name</option>
+          </select>
+        </label>
+    </div>
+    <div class="filter-sortto-wrapper">
+      <input type="radio" id="setAsc" name="setAsc" ng-model="direction" name="direction" checked>
+      <label for="setAsc">ASC</label>
+      <input type="radio" id="setDesc" name="setDesc" ng-model="direction" name="direction" value="reverse">
+      <label for="setDesc">DESC</label>
+    </div>
+  </div>
+  <div class="pokemon-main">
+    <div class="pokemon-list-wrapper">
+      <div ng-repeat="put in characterDisplay | filter:searchCharacterDetails | orderBy:pokedexSort:direction | limitTo:loadLimit" id="pokemon-{{put.id}}" class="pokemon-monster" ng-click="openPanel(put.id)">
+        <div class="pokemon-first-data">
+          <div class="pokemon-thumb-image">
+            <img ng-src="assets/images/thm/{{put.id + put.ename}}.png" err-src="assets/images/thm/{{put.id + put.flatName}}.png" />
+          </div>
+          <div class="pokemon-id">{{put.id}}</div>
+          <div class="pokemon-name">{{put.ename}}<p class="pokemon-type">{{put.typename}}</p></div>
+        </div>
+        <div id="pokemon-monster-{{put.id}}" class="panel-container">
+          <div class="panel-wrapper">
+            <div class="app-detail-header">
+              <img ng-src="assets/images/img/{{put.id + put.ename}}.png"  err-src="assets/images/img/{{put.id + put.flatName}}.png" />
+              <div class=""></div>
+            </div>
+            <div class="app-detail-content">
+              <div class="app-sub-detail">
+                <ul>
+                  <li>
+                    <div>Attack</div>
+                    <progress max="100" value="{{(put.base.Attack/baseAttack)*100}}"></progress>
+                    <!-- <span>{{(put.base.Attack/baseAttack)*100}})%</span> -->
+                    <span>{{put.base.Attack}}</span>
+                  </li>
+                  <li>
+                    <div>Defense</div>
+                    <progress max="100" value="{{(put.base.Defense/baseDefense)*100}}"></progress>
+                    <!-- <span>{{(put.base.Defense/baseDefense)*100}}%</span> -->
+                    <span>{{put.base.Defense}}</span>
+                  </li>
+                  <li>
+                    <div>HP</div>
+                    <progress max="100" value="{{(put.base.HP/baseHp)*100}}"></progress>
+                    <!-- <span>{{(put.base.HP/baseHp)*100}}%</span> -->
+                    <span>{{put.base.HP}}</span>
+                  </li>
+                  <li>
+                    <div>Special Attack</div>
+                    <progress max="100" value="{{(put.base['Sp.Atk']/baseSpAttack)*100}}"></progress>
+                    <!-- <span>{{(put.base['Sp.Atk']/baseSpAttack)*100}}%</span> -->
+                    <span>{{put.base['Sp.Atk']}}</span>
+                  </li>
+                  <li>
+                    <div>Special Defense</div>
+                    <progress max="100" value="{{(put.base['Sp.Def']/baseSpDefense)*100}}"></progress>
+                    <!-- <span>{{(put.base['Sp.Def']/baseSpDefense)*100}}%</span> -->
+                    <span>{{put.base['Sp.Def']}}</span>
+                  </li>
+                  <li>
+                    <div>Speed</div>
+                    <progress max="100" value="{{(put.base.Speed/baseSpeed)*100}}"></progress>
+                    <!-- <span>{{(put.base.Speed/baseSpeed)*100}}%</span> -->
+                    <span>{{put.base.Speed}}</span>
+                  </li>
+                </ul>
+            </div>
+            <div class="app-sub-detail-second">
+              <div class="lvl-skills-header"><img ng-src="assets/images/spr/{{put.id}}MS.png" />Level up Skills</div>
+              <div class="lvl-skils-content">{{put.lvlSkills}}</div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="loding-wrapper" ng-show="loadingImg">  
+        <img src="assets/images/ajax-loader.gif" class="ajax-loader" />  
+      </div>
+      <div class="no-results" ng-show="noResults"><span>No results found.</span></div>      
+    </div>
+    <div class="load-more-wrapper" ng-click="loadMoreDisplay()" ng-show="loadMoreDiv">Load more..</div>
+  </div>
+</div>
