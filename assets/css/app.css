@@ -360,14 +360,14 @@ div.name {
 /*END POKEMON DETAILS*/
 /*RESPONSIVE WEB DESIGN*/
 @media (max-width: 480px) {
-    .pokemon-list-wrapper > div.pokemon-monster {
+/*    .pokemon-list-wrapper > div.pokemon-monster {
         width: 100%;
         margin: 15px 0;
     }
     .pokemon-list-wrapper > div.pokemon-monster img {
         width: 50% !important;
-    }
-    .app-container {
+    }*/
+/*    .app-container {
         padding: 25px;
     }
     .app-detail-content {
@@ -375,6 +375,6 @@ div.name {
     }
     .panel-container {
         height: 360px;
-    }
+    }*/
 
 }

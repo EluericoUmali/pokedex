@@ -8,7 +8,7 @@ You may open the project directly on your htdocs apache. Please see sample local
 http://localhost/pokedex/#/
 
 ##Implemented the following:
-1. angularjs and its library angular route for single page view.
+1. angularjs and its library angular-route for single page view.
 2. media query for the responsive web app view and simple css for the layout.
 3. HTML5 for the progressbar
 
