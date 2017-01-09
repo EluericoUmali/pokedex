@@ -363,4 +363,7 @@ div.name {
     .pokemon-name {
         font-size: 20px;   
     }
+    .app-sub-detail ul li div {
+        width: 80px;
+    }
 }
