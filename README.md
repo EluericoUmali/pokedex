@@ -9,7 +9,7 @@ http://localhost/pokedex/#/
 
 ##Implemented the following:
 1. angularjs and its library angular-route for single page view.
-2. media query for the responsive web app view and simple css for the layout.
+2. media query for the responsive web app view and css for the layout.
 3. HTML5 for the progressbar
 
 ##Please see link below for the manual
