@@ -10,6 +10,3 @@ http://localhost/pokedex/#/
 -angularjs and its library angular route for single page view.
 -media query for the responsive web app view and simple css for the layout.
 -HTML5 for the progressbar
-
-#Please refer below link for the steps 
-

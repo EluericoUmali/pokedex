@@ -1,6 +1,7 @@
 <div class="app-container">
     <div id="header">
         <h1>Pokedex</h1>
+        <span>{{itemsLeft}}/{{totalItems}}</span>
     </div>
     <div class="filter-container">
         <input type="text" ng-model="searchCharacterDetails" ng-change="searchCharacter()" placeholder="Enter a name and type" class="search-text">
@@ -20,7 +21,6 @@
             <label for="setDesc">DESC</label>
         </div>
     </div>
-    <div class="items-wrapper"><span>{{itemsLeft}}/{{totalItems}}</span></div>
   <div class="pokemon-main">
     <div class="pokemon-list-wrapper">
         <div ng-repeat="put in characterDisplay | filter:searchCharacterDetails | orderBy:pokedexSort:direction | limitTo:loadLimit" id="pokemon-{{put.id}}" class="pokemon-monster" ng-click="openPanel(put.id)">
