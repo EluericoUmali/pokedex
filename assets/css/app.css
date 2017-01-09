@@ -359,22 +359,8 @@ div.name {
 }
 /*END POKEMON DETAILS*/
 /*RESPONSIVE WEB DESIGN*/
-@media (max-width: 480px) {
-/*    .pokemon-list-wrapper > div.pokemon-monster {
-        width: 100%;
-        margin: 15px 0;
+@media (max-width: 360px) {
+    .pokemon-name {
+        font-size: 20px;   
     }
-    .pokemon-list-wrapper > div.pokemon-monster img {
-        width: 50% !important;
-    }*/
-/*    .app-container {
-        padding: 25px;
-    }
-    .app-detail-content {
-        width: 100%;
-    }
-    .panel-container {
-        height: 360px;
-    }*/
-
 }
