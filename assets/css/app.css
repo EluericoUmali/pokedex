@@ -79,7 +79,7 @@ div.app {
     background: #f5f5f5;
 }
 .pokemon-list-wrapper {
-    margin: 20px 0 0;
+    margin: 0 0 20px;
     min-height: 575px;
 }
 .app-sub-detail ul {
@@ -121,7 +121,8 @@ div.name {
     float: left;
     margin-left: 20px;
 }
-.pokemon-list-wrapper > div.pokemon-monster:hover {
+.pokemon-list-wrapper > div.pokemon-monster:hover,
+.pokemon-list-wrapper > div.pokemon-monster.show {
     border: 4px solid #e0efff;
 } 
 /*END POKEMON LIST*/
@@ -200,6 +201,8 @@ div.name {
     width: 40%;
     margin: 0 auto;
     padding: 12px 0 0;
+    position: relative;
+    z-index: 2;
 }
 .app-detail-header img {
     width: 100%;
@@ -212,8 +215,10 @@ div.name {
     background: #fff;
     -webkit-box-sizing: border-box;
     width: 100%;
-    height: 265px;
+    height: 386px;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 .app-detail-content .name {
     margin: 10px 0;
@@ -246,9 +251,54 @@ div.name {
     font-weight: bold;
     line-height: 40px;
 }
-.lvl-skils-content.ng-binding {
+.lvl-skils-content {
     font-size: 12px;
     text-align: left;
+    margin-left: 10px;
+}
+.lvl-skils-content ul li {
+    display: inline;
+}
+.lvl-skils-content ul li span:nth-of-type(2) {
+    padding: 5px;
+}
+.lvl-skils-content ul li.last span:nth-of-type(2) {
+    display: none;
+}
+.lvl-skils-content ul li span {
+    font-size: 13px;
+}
+.skill-desc-container {
+    display: none;
+}
+.lvl-skilldesc-wrapper {
+    padding: 15px;
+}
+.lvl-skilldesc-wrapper ul li span {
+    font-size: 12px;
+}
+.lvl-skils-content ul li:hover span:first-of-type {
+    color: #215d00;
+}
+.no-record-wrapper {
+    text-align: left;
+    margin-left: 15px;
+    font-size: 13px;
+}
+.lvl-skilldesc-wrapper {
+    padding: 15px;
+    position: absolute;
+    top: 83px;
+    left: 137px;
+    background-color: #fff;
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.items-wrapper {
+    text-align: right;
+    font-size: 12px;
+    padding: 5px 0;
 }
 /*Displaying pokemon id on top left corner of the category box*/
 .pokemon-id {
@@ -288,7 +338,7 @@ div.name {
     display: none;
 }
 .pokemon-monster.show .panel-container  {
-    height: 415px;
+    height: 430px;
     -webkit-transition: height .5s;
     transition: height .5s;
     border-top-left-radius: 5px;
