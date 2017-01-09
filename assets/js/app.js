@@ -180,6 +180,7 @@ appController.controller("pokemonController", ['$scope','$http', '$filter', 'pok
                         $scope.loadMoreDiv = false;
                     }
                 } else {
+                    $scope.loadMoreDiv = false;
                     $scope.noResults = true;
                 }
             } else {
