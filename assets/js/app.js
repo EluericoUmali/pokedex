@@ -1,22 +1,3 @@
-var appCharacter = angular.module('pokedexApp', ['ngRoute','appController']);
-
-appCharacter.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/', {
-            templateUrl: 'views/view.html',
-            controller: 'pokemonController'
-    }).
-        otherwise({
-            redirectTo: '/'
-    });
-}]);
-appCharacter.factory("pokedexFetch", function($http){
-    return { 
-        getPokedexItems: function(data){ $http.get('data/pokedex.json').success(data); },
-        getMaxValue: function(arr) { return Math.max.apply(Math, arr); }
-  };
-});
-
 var appController = angular.module("appController", []);
 appController.controller("pokemonController", ['$scope','$http', '$filter', 'pokedexFetch', function($scope, $http, $filter, pokedexFetch) {
         var getAttack = [];
@@ -86,7 +67,7 @@ appController.controller("pokemonController", ['$scope','$http', '$filter', 'pok
 
         $scope.getAllPokemonDetails = function(selectedPokemonId) {
             $scope.loadingImg = true;
-            $http.get('data/types.json').success (function(data){
+            pokedexFetch.getPokedexTypes(function(data){
                 $scope.getPokemonTypes.push(data);
             });
             $scope.getSkillDetails();
@@ -230,19 +211,3 @@ appController.controller("pokemonController", ['$scope','$http', '$filter', 'pok
     }]
 );
 
-appController.directive('errSrc', function() {
-  return {
-    link: function(scope, element, attrs) {
-      scope.$watch(function() {
-          return attrs['ngSrc'];
-        }, function (value) {
-          if (!value) {
-            element.attr('src', attrs.errSrc);  
-          }
-      });
-      element.bind('error', function() {
-        element.attr('src', attrs.errSrc);
-      });
-    }
-  }
-});
