@@ -1,6 +1,4 @@
 # Project Name: pokedex
-# Maltem Hands on exam
-
 
 ##How to run
 
